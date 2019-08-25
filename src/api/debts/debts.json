@@ -1,0 +1,18 @@
+[
+  {
+    "debtId": 1,
+    "debtorName": "Kamil",
+    "description": "",
+    "date": "June 16, 2019",
+    "value": 10,
+    "meToPay": false
+  },
+  {
+    "debtId": 2,
+    "debtorName": "Alan",
+    "description": "beer",
+    "date": "June 11, 2019",
+    "value": 5,
+    "meToPay": true
+  }
+]
