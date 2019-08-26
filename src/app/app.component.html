@@ -1,13 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <a class="navbar-brand">{{pageTitle}}</a>
-  <ul class="nav nav-pills">
-    <li><a class="nav-link" [routerLink]="['/welcome']">Home</a></li>
-    <li><a class="nav-link" [routerLink]="['/debts']">My debts</a></li>
-  </ul>
-</nav>
+<div class="container">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand">{{pageTitle}}</a>
+    <ul class="nav nav-pills">
+      <li><a class="nav-link" [routerLink]="['/welcome']">Home</a></li>
+      <li><a class="nav-link" [routerLink]="['/debts']">My debts</a></li>
+    </ul>
+  </nav>
 
-<main class="container" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-  <router-outlet #o="outlet"></router-outlet>
-</main>
-
+  <main class="outlet-container" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <router-outlet #o="outlet"></router-outlet>
+  </main>
+</div>

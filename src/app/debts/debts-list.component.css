@@ -1,3 +1,24 @@
-.card{
+.table {
+  position: relative;
   width: 80%;
+  left: 10%;
+  right:10%;
+  top: 5px;
+}
+
+.thumbs-up {
+  color: green;
+}
+
+.thumbs-down {
+  color: red;
+}
+
+.delete-icon:hover {
+  color: #555555;
+  cursor: pointer;
+}
+
+#no-debts{
+  text-align: center;
 }

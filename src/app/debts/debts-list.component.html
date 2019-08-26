@@ -1,16 +1,6 @@
-<div class="card">
-  <div class="card-header">
-    {{pageTitle}}
-  </div>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-2">Filter by:</div>
-      <div class="col-md-4">
-        <!--<input type="text"-->
-        <!--[(ngModel)]="listFilter"/>-->
-      </div>
-    </div>
-    <div class="table">
+<div>
+  <div>
+    <div class="table" *ngIf='debts && debts.length; else elseBlock'>
       <thead>
       <tr>
         <th>+/-</th>
@@ -23,8 +13,8 @@
       <tbody>
       <tr *ngFor="let debt of debts; let i=index">
         <td>
-          <fa-icon *ngIf="debt.meToPay" [icon]=thumbsUpIcon [styles]="{color:'green'}"></fa-icon>
-          <fa-icon *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
+          <fa-icon class="thumbs-up" *ngIf="debt.meToPay" [icon]=thumbsUpIcon></fa-icon>
+          <fa-icon class="thumbs-down" *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
         </td>
         <td>{{debt.debtorName}}</td>
         <td>{{debt.value | currency: 'PLN'}}</td>
@@ -34,10 +24,11 @@
           <fa-icon [icon]=editIcon></fa-icon>
         </td>
         <td>
-          <fa-icon [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>
+          <fa-icon class="delete-icon" [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>
         </td>
       </tr>
       </tbody>
     </div>
+    <ng-template #elseBlock><h3 id="no-debts">You are free of debts!</h3></ng-template>
   </div>
 </div>
