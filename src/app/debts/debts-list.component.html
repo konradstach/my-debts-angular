@@ -7,27 +7,35 @@
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
         <!--<input type="text"-->
-               <!--[(ngModel)]="listFilter"/>-->
+        <!--[(ngModel)]="listFilter"/>-->
       </div>
-    </div>
-    <div class="row">
-      <!--<div class="col-md-6">-->
-        <!--<h4>Filtered by: {{listFilter}}</h4>-->
-      <!--</div>-->
     </div>
     <div class="table">
       <thead>
       <tr>
-        <th>Product</th>
-        <th>Code</th>
-        <th>Available</th>
+        <th>+/-</th>
+        <th>Who</th>
+        <th>How much</th>
+        <th>For what</th>
+        <th>When</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let debt of debts">
-        <td>{{debt.debtId }}</td>
+      <tr *ngFor="let debt of debts; let i=index">
+        <td>
+          <fa-icon *ngIf="debt.meToPay" [icon]=thumbsUpIcon [styles]="{color:'green'}"></fa-icon>
+          <fa-icon *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
+        </td>
         <td>{{debt.debtorName}}</td>
-        <td>{{debt.value | currency}}</td>
+        <td>{{debt.value | currency: 'PLN'}}</td>
+        <td>{{debt.description}}</td>
+        <td>{{debt.date}}</td>
+        <td>
+          <fa-icon [icon]=editIcon></fa-icon>
+        </td>
+        <td>
+          <fa-icon [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>
+        </td>
       </tr>
       </tbody>
     </div>

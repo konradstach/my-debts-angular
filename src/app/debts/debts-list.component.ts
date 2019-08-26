@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IDebt} from './debt';
 import {DebtService} from './debt.service';
+import {faEdit, faThumbsDown, faThumbsUp, faTrash} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-debts-list',
@@ -11,6 +12,10 @@ export class DebtsListComponent implements OnInit {
 
   pageTitle: string = 'Debt list';
   debts: IDebt[];
+  deleteIcon = faTrash;
+  editIcon = faEdit;
+  thumbsUpIcon = faThumbsUp;
+  thumbsDownIcon = faThumbsDown;
 
   constructor(private debtService: DebtService) {
   }
@@ -22,6 +27,11 @@ export class DebtsListComponent implements OnInit {
         console.log(debts);
       }
     );
+  }
+
+  onDeleteClick(rowNumber: number): void {
+    console.log(rowNumber);
+    this.debts.splice(rowNumber, 1);
   }
 
 }
