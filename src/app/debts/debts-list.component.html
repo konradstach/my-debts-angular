@@ -1,33 +1,37 @@
-<div>
-  <div>
-    <div class="table" *ngIf='debts && debts.length; else elseBlock'>
-      <thead>
-      <tr>
-        <th>+/-</th>
-        <th>Who</th>
-        <th>How much</th>
-        <th>For what</th>
-        <th>When</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let debt of debts; let i=index">
-        <td>
-          <fa-icon class="thumbs-up" *ngIf="debt.meToPay" [icon]=thumbsUpIcon></fa-icon>
-          <fa-icon class="thumbs-down" *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
-        </td>
-        <td>{{debt.debtorName}}</td>
-        <td>{{debt.value | currency: 'PLN'}}</td>
-        <td>{{debt.description}}</td>
-        <td>{{debt.date}}</td>
-        <td>
-          <fa-icon [icon]=editIcon></fa-icon>
-        </td>
-        <td>
-          <fa-icon class="delete-icon" [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>
-        </td>
-      </tr>
-      </tbody>
+<div class="card">
+  <div class="card-body">
+    <div *ngIf='debts && debts.length; else elseBlock'>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>+/-</th>
+          <th>Who</th>
+          <th>How much</th>
+          <th>For what</th>
+          <th>When</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let debt of debts; let i=index">
+          <td>
+            <fa-icon class="thumbs-up" *ngIf="debt.meToPay" [icon]=thumbsUpIcon></fa-icon>
+            <fa-icon class="thumbs-down" *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
+          </td>
+          <td>{{debt.debtorName}}</td>
+          <td>{{debt.value | currency: 'PLN'}}</td>
+          <td>{{debt.description}}</td>
+          <td>{{debt.date}}</td>
+          <td>
+            <fa-icon [icon]=editIcon></fa-icon>
+          </td>
+          <td>
+            <fa-icon class="delete-icon" [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <ng-template #elseBlock><h3 id="no-debts">You are free of debts!</h3></ng-template>
   </div>

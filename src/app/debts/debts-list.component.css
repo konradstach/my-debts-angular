@@ -1,9 +1,12 @@
-.table {
-  position: relative;
-  width: 80%;
+.card {
+  position: absolute;
   left: 10%;
-  right:10%;
-  top: 5px;
+  right: 10%;
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .thumbs-up {
@@ -19,6 +22,6 @@
   cursor: pointer;
 }
 
-#no-debts{
+#no-debts {
   text-align: center;
 }
