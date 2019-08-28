@@ -1,7 +1,7 @@
 .card {
   position: absolute;
-  left: 10%;
-  right: 10%;
+  left: 15%;
+  right: 15%;
 }
 
 .table {
@@ -15,6 +15,17 @@
 
 .thumbs-down {
   color: red;
+}
+
+.add-icon{
+  color:green;
+  float: right;
+  margin-right: 40px;
+}
+
+.add-icon:hover {
+  color: #4acc00;
+  cursor: pointer;
 }
 
 .delete-icon:hover {

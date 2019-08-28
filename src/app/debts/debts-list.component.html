@@ -19,10 +19,16 @@
             <fa-icon class="thumbs-up" *ngIf="debt.meToPay" [icon]=thumbsUpIcon></fa-icon>
             <fa-icon class="thumbs-down" *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
           </td>
-          <td>{{debt.debtorName}}</td>
+          <td>
+            <input type="text" [(ngModel)]="debt.debtorName" [disabled]="!debt.isEditable"/>
+          </td>
           <td>{{debt.value | currency: 'PLN'}}</td>
           <td>{{debt.description}}</td>
           <td>{{debt.date}}</td>
+          <td>
+            <fa-icon (click)="debt.isEditable=!debt.isEditable" *ngIf="!debt.isEditable" [icon]=editIcon></fa-icon>
+            <fa-icon *ngIf="debt.isEditable" (click)="debt.isEditable=!debt.isEditable" [icon]=confirmIcon>></fa-icon>
+          </td>
           <td>
             <fa-icon [icon]=editIcon></fa-icon>
           </td>
@@ -34,5 +40,9 @@
       </table>
     </div>
     <ng-template #elseBlock><h3 id="no-debts">You are free of debts!</h3></ng-template>
+    <a href="/new" [routerLink]="['/new']">
+      <fa-icon class="add-icon fa-3x" [icon]=addIcon></fa-icon>
+    </a>
+
   </div>
 </div>
