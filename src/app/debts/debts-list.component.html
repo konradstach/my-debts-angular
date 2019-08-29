@@ -22,15 +22,14 @@
           <td>
             <input type="text" [(ngModel)]="debt.debtorName" [disabled]="!debt.isEditable"/>
           </td>
-          <td>{{debt.value | currency: 'PLN'}}</td>
+          <td>
+            <input type="text" [(ngModel)]="debt.value" (blur)="transformAmount($event, i)" [disabled]="!debt.isEditable"/>
+          </td>
           <td>{{debt.description}}</td>
           <td>{{debt.date}}</td>
           <td>
             <fa-icon (click)="debt.isEditable=!debt.isEditable" *ngIf="!debt.isEditable" [icon]=editIcon></fa-icon>
             <fa-icon *ngIf="debt.isEditable" (click)="debt.isEditable=!debt.isEditable" [icon]=confirmIcon>></fa-icon>
-          </td>
-          <td>
-            <fa-icon [icon]=editIcon></fa-icon>
           </td>
           <td>
             <fa-icon class="delete-icon" [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>

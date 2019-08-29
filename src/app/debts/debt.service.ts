@@ -9,7 +9,7 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class DebtService {
 
-  private debtsUrl = 'https://api.myjson.com/bins/n3hwn';
+  private debtsUrl = 'https://api.myjson.com/bins/1b7u63';
 
   constructor(private http: HttpClient) {
   }

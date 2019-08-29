@@ -3,6 +3,6 @@ export interface IDebt{
   debtorName: string;
   description: string;
   date: string;
-  value: number;
+  value: string;
   meToPay: boolean;
 }

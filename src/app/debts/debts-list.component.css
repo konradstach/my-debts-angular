@@ -17,8 +17,8 @@
   color: red;
 }
 
-.add-icon{
-  color:green;
+.add-icon {
+  color: green;
   float: right;
   margin-right: 40px;
 }
@@ -35,4 +35,14 @@
 
 #no-debts {
   text-align: center;
+}
+
+input[type=text]:focus {
+  border: 2px solid #555;
+}
+
+input:disabled {
+  background-color: white;
+  color: black;
+  border: 1px;
 }

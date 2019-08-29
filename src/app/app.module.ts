@@ -8,8 +8,9 @@ import {WelcomeComponent} from './home/welcome.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { DebtDetailComponent } from './debts/debt-detail/debt-detail.component';
-import { FormsModule } from '@angular/forms';
+import {DebtDetailComponent} from './debts/debt-detail/debt-detail.component';
+import {FormsModule} from '@angular/forms';
+import {CurrencyPipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
