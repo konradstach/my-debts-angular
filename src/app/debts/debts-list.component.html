@@ -20,16 +20,20 @@
             <fa-icon class="thumbs-down" *ngIf="!debt.meToPay" [icon]=thumbsDownIcon [styles]="{color:'red'}"></fa-icon>
           </td>
           <td>
-            <input type="text" [(ngModel)]="debt.debtorName" [disabled]="!debt.isEditable"/>
+            <input type="text" size="10" [(ngModel)]="debt.debtorName" [disabled]="!debt.isEditable"/>
           </td>
           <td>
-            <input type="text" [(ngModel)]="debt.value" (blur)="transformAmount($event, i)" [disabled]="!debt.isEditable"/>
+            <input type="text" size="10" [(ngModel)]="debt.value" (blur)="transformAmount($event, i)" [disabled]="!debt.isEditable"/>
           </td>
-          <td>{{debt.description}}</td>
-          <td>{{debt.date}}</td>
           <td>
-            <fa-icon (click)="debt.isEditable=!debt.isEditable" *ngIf="!debt.isEditable" [icon]=editIcon></fa-icon>
-            <fa-icon *ngIf="debt.isEditable" (click)="debt.isEditable=!debt.isEditable" [icon]=confirmIcon>></fa-icon>
+            <input type="text" size="15" [(ngModel)]="debt.description" [disabled]="!debt.isEditable"/>
+          </td>
+          <td>
+            <input type="text" size="15" [(ngModel)]="debt.date" [disabled]="!debt.isEditable"/>
+          </td>
+          <td>
+          <fa-icon (click)="debt.isEditable=!debt.isEditable" *ngIf="!debt.isEditable" [icon]=editIcon></fa-icon>
+          <fa-icon *ngIf="debt.isEditable" (click)="debt.isEditable=!debt.isEditable" [icon]=confirmIcon>></fa-icon>
           </td>
           <td>
             <fa-icon class="delete-icon" [icon]=deleteIcon (click)=onDeleteClick(i)></fa-icon>
