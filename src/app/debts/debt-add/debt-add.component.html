@@ -1,0 +1,20 @@
+<div class="centered">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    Name:
+    <select formControlName="debtor">
+      <option *ngFor="let debtor of debtors" [value]="debtor">
+        {{debtor}}
+      </option>
+    </select>
+    <br/>
+    Value: <input formControlName="value" placeholder="How much?"><br>
+    <span *ngIf="(value.dirty || value.touched) && value.invalid && value.errors.invalidNumber">
+      Value has to be a number.
+    </span>
+    Description: <input formControlName="description" placeholder="For what?"><br>
+    Date: <input formControlName="date" placeholder="When?"><br>
+    Me to pay: <input formControlName="meToPay" placeholder="Do I own?"><br>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+    <button type="reset" (click)="revert()">Revert</button>
+  </form>
+</div>
