@@ -11,6 +11,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CurrencyPipe} from '@angular/common';
 import {DebtAddComponent} from './debts/debt-add/debt-add.component';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {DataService} from './debts/data.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {DebtAddComponent} from './debts/debt-add/debt-add.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]
