@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {numericValueValidator} from '../../validators/numeric-value-validator';
-
 
 @Component({
   selector: 'md-debt-add',
